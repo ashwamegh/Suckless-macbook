@@ -3,7 +3,7 @@
 
 You will need the scripts in your $PATH in order for the dwmblocks bar to populate.  Please refer to this directory:
 
-	https://github.com/ashwamegh/Suckless-macbook/local-bin-scripts
+	https://github.com/ashwamegh/Suckless-macbook/tree/main/local-bin-scripts
 
 Once scripts are added and accessible:
 
