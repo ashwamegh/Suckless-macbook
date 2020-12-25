@@ -24,8 +24,10 @@ static const char *colors[SchemeLast][2] = {
 	/*     fg         bg       */
 	[SchemeNorm] = { "#bbbbbb", "#1a1a1a" },
 	[SchemeSel] = { "#eeeeee", "#1793d0" },
-	[SchemeSelHighlight] = { "#ffde66", "#333333" },
-	[SchemeNormHighlight] = { "#9c7a00", "#333333" },
+	/* [SchemeSelHighlight] = { "#ffde66", "#333333" }, */
+	/* [SchemeNormHighlight] = { "#9c7a00", "#333333" }, */
+	[SchemeSelHighlight] = { "#ffc978", "#005577" },
+        [SchemeNormHighlight] = { "#ffc978", "#222222" },
 	[SchemeOut] = { "#000000", "#00ffff" },
 };
 static const unsigned int alphas[SchemeLast][2] = {
