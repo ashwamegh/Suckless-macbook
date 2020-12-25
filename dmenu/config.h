@@ -37,6 +37,10 @@ static const unsigned int alphas[SchemeLast][2] = {
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */
 static unsigned int lines = 20;
 
+/* -h option; minimum height of a menu line */
+static unsigned int lineheight = 0;
+static unsigned int min_lineheight = 8;
+
 /*
  * Characters not considered part of a word while deleting words
  * for example: " /?\"&[]"
