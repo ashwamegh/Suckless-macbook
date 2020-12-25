@@ -16,6 +16,7 @@ static const char *fonts[] = {
     "Dejavu San Mono for Powerline:size=12",
     "JoyPixels:size=12:antialias=true:autohint=true",
 };
+static int fuzzy = 1;      /* -F  option; if 0, dmenu doesn't use fuzzy matching     */
 static const unsigned int bgalpha = OPAQUE;
 static const unsigned int fgalpha = OPAQUE;
 static const char *prompt      = NULL;      /* -p  option; prompt to the left of input field */
