@@ -208,7 +208,7 @@ static Key keys[] = {
     { Mod1Mask,			XK_w,	    spawn,	SHCMD(TERMINAL " -e nmtui") },
     { Mod1Mask,			XK_e,	    spawn,	SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
     { MODKEY|ShiftMask,	        XK_e,	    spawn,      SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
-    { Mod1Mask,                 XK_b,       spawn,      CMD("firefox") },
+    { Mod1Mask,                 XK_b,       spawn,      CMD("brave") },
     { Mod1Mask|ShiftMask,       XK_b,       spawn,      {.v = surftermcmd } },
     { Mod1Mask,                 XK_f,       spawn,      SHCMD(TERMINAL " -e ranger") },
     { Mod1Mask,                 XK_n,       spawn,      CMD("st -e vim ~/Dropbox/Lehigh/Notes/") },
