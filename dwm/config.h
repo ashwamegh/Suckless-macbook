@@ -40,7 +40,7 @@ static const char col_white[]          = "#ffffff"; /* border color */
  * 0xee adds wee bit of transparency.
  * Play with the value to get desired transparency.
  */
-static const unsigned int baralpha    = 0xee;
+static const unsigned int baralpha    = 0x99;
 static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]        = {
     /*               fg         bg         border   */
@@ -106,7 +106,9 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[]    = { "dmenu_run", "-p", "Run: ", NULL };
+static const char *roficmd[] = { "rofi", "-combi-modi", "window,drun,file-browser,run", "-show", "combi", "-modi", "combi", "-show-icons" , NULL};
 static const char *termcmd[]     = { "st", NULL };
+static const char *surftermcmd[] = { "tabbed", "surf", "-pe", NULL};
 static const char *tabtermcmd[]  = { "tabbed", "-r 2", "st", "-w", "''", NULL };
 static const char scratchpadname[] = "scratchpad";
 /* static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL }; */
@@ -132,8 +134,9 @@ static Key keys[] = {
     /* modifier             key        function        argument */
     { MODKEY|ControlMask,   XK_Delete,     spawn,          SHCMD("sysact") },
     { Mod1Mask|ControlMask, XK_l,          spawn,          SHCMD("lock") },
-    { MODKEY|ShiftMask,     XK_Return,     spawn,          {.v = dmenucmd } },
+    { MODKEY,		    XK_space,      spawn,          {.v = roficmd } },
     { MODKEY,               XK_Return,     spawn,          {.v = termcmd } },
+    { MODKEY|ShiftMask,     XK_Return,     spawn,          {.v = dmenucmd } },
     { Mod1Mask,             XK_Return,     spawn,          {.v = tabtermcmd } },
     { MODKEY|ShiftMask,     XK_s,          togglescratch,  {.v = scratchpadcmd } },
     { MODKEY|ShiftMask,     XK_t,          togglebar,      {0} },
@@ -145,7 +148,7 @@ static Key keys[] = {
     { MODKEY|ShiftMask,     XK_d,          incnmaster,     {.i = -1 } },
     { MODKEY,               XK_h,          setmfact,       {.f = -0.05} },
     { MODKEY,               XK_l,          setmfact,       {.f = +0.05} },
-    { MODKEY,               XK_space,      zoom,           {0} },
+    { Mod1Mask,               XK_space,      zoom,           {0} },
     { MODKEY,               XK_z,          view,           {0} },
     { MODKEY,     XK_q,          killclient,     {0} },
 
@@ -206,7 +209,7 @@ static Key keys[] = {
     { Mod1Mask,			XK_e,	    spawn,	SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks; rmdir ~/.abook") },
     { MODKEY|ShiftMask,	        XK_e,	    spawn,      SHCMD(TERMINAL " -e abook -C ~/.config/abook/abookrc --datafile ~/.config/abook/addressbook") },
     { Mod1Mask,                 XK_b,       spawn,      CMD("firefox") },
-    { Mod1Mask|ShiftMask,       XK_b,       spawn,      CMD("qutebrowser") },
+    { Mod1Mask|ShiftMask,       XK_b,       spawn,      {.v = surftermcmd } },
     { Mod1Mask,                 XK_f,       spawn,      SHCMD(TERMINAL " -e ranger") },
     { Mod1Mask,                 XK_n,       spawn,      CMD("st -e vim ~/Dropbox/Lehigh/Notes/") },
     { Mod1Mask|ShiftMask,       XK_c,       spawn,      CMD("~/.dmenu/dmenu-edit-configs.sh") },
